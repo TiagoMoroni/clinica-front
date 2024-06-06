@@ -1,6 +1,9 @@
 <template>
   <div class="container">
     <div class="left-container">
+      <div style="background-color: white; border-radius: 40%; margin: 90px; padding: 0px 40px; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+        <v-img src="..\assets\logo-clinica.png" height="auto" width="auto"></v-img>
+      </div>
     </div>
     <div class="right-container">
       <h1 class="login-text">{{ user.isRegister ? "Cadastro" : "Login"}}</h1>
@@ -10,8 +13,8 @@
             <v-text-field :rules="required" label="Nome de usuário" class="w-100" v-model="user.userName"></v-text-field>
             <v-text-field :rules="required" label="Senha" type="password" class="mt-2 w-100"
               v-model="user.password"></v-text-field>
-            <div class="d-flex justify-space-between align-center">
-              <v-btn @click="user.isRegister = !user.isRegister" variant="plain" :ripple="false"  color="#58AF9B">Esqueceu sua senha?</v-btn>
+            <div class="d-flex justify-space-between align-center flex-wrap">
+              <v-btn @click="user.isRegister = !user.isRegister" variant="plain" :ripple="false"  color="#58AF9B" style="word-break: break-all;">Esqueceu sua senha?</v-btn>
               <v-btn class="mt-2 shrink px-14" type="submit" color="#58AF9B" :loading="buttonLoading"
                 @click="login">Login</v-btn>
             </div>

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const defaultUrl = "http://localhost:5003/" 
+const defaultUrl = "https://vocal-snail-meet.ngrok-free.app"
 
 export default {
     namespaced: true,
@@ -17,7 +17,7 @@ export default {
     actions: {
         async login(store) { 
             try {
-                const response = await axios.post(`${defaultUrl}/login`, {userName: store.state.userName, password: store.state.password})
+                const response = await axios.post(`${defaultUrl}/api/employee/login`, {userName: store.state.userName, password: store.state.password, role: "admin", id: 1})
                 localStorage.setItem('token', response.data.token)
                 store.state.isAuthenticated = true
                 return true
