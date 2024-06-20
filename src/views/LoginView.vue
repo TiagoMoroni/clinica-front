@@ -14,7 +14,7 @@
             <v-text-field :rules="required" label="Senha" type="password" class="mt-2 w-100"
               v-model="user.password"></v-text-field>
             <div class="d-flex justify-space-between align-center flex-wrap">
-              <v-btn @click="user.isRegister = !user.isRegister" variant="plain" :ripple="false"  color="#58AF9B" style="word-break: break-all;">Esqueceu sua senha?</v-btn>
+              <v-btn @click="changeToForgetPassword()" variant="plain" :ripple="false"  color="#58AF9B" style="word-break: break-all;">Esqueceu sua senha?</v-btn>
               <v-btn class="mt-2 shrink px-14" type="submit" color="#58AF9B" :loading="buttonLoading"
                 @click="login">Login</v-btn>
             </div>
@@ -38,7 +38,7 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'LoginView',
+  name: 'LoginViewView',
   data: () => ({
     buttonLoading: false,
     required: [value => !!value || 'Campo obrigatório.'],
@@ -71,6 +71,10 @@ export default defineComponent({
         }
         this.buttonLoading = false
       }
+    },
+    changeToForgetPassword(){
+      this.user.isRegister = !this.user.isRegister
+      this.user = {}
     }
   }
 });
